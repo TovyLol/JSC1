@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+</head>
+<body>
+
+<script>
+var woord = "opleiding";
+function woordzooi(woord) {
+    let result = "";
+    for (i = 0; i < 9; i++) {
+        let krijgdieletters = woord.charAt(i)
+        result += krijgdieletters + "<br>";
+        
+    }
+    return result;
+}
+var print = woordzooi(woord);
+document.write(print);
+</script>
+
+</body>
+</html>

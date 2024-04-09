@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+</head>
+<body>
+
+<script>
+var zin = "applicatie ontwikkelaar";
+
+function allesineen(zin) {
+    var lengte = zin.length;
+    var plaatsinstring = zin.indexOf("ontwikkelaar");
+    var constains = zin.includes("wikkelaar");
+    var substr = zin.substr(14, 3);
+    var edit = zin.replace("ontwikkelaar", "programmeur");
+    var tocaps = zin.toLocaleUpperCase();
+    return {
+        lengte : lengte,
+        plaatsinstring: plaatsinstring,
+        constains: constains,
+        substr: substr,
+        edit: edit,
+        tocaps: tocaps
+    };
+}
+var yippie = allesineen(zin);
+
+document.write(yippie.lengte + "<br>");
+document.write(yippie.plaatsinstring + "<br>");
+document.write(yippie.constains + "<br>");
+document.write(yippie.substr + "<br>");
+document.write(yippie.edit + "<br>");
+document.write(yippie.tocaps + "<br>");
+
+</script>
+
+</body>
+</html>

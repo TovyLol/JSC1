@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+</head>
+<body>
+
+<script>
+var c1 = 1;
+var c2 = 4304;
+let actie = "plus";
+
+function rekenen(c1, c2, actie) {
+    switch (actie){
+        case "keer":
+            return c1 * c2;
+            break;
+        case "plus":
+            return c1 + c2;
+            break;
+        case "min":
+            return c1 - c2;
+            break;
+        case "delen":
+            return c1 / c2;
+            break;
+        default:
+            return "this shit aint working bruh";
+            break;
+
+    }
+}
+var resultaat = rekenen(c1, c2, actie);
+document.write(resultaat);
+
+</script>
+
+</body>
+</html>

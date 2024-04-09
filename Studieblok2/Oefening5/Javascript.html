@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+</head>
+<body>
+
+<script>
+const namen = ["Zoe", "Bram", "Clarissa", "Isa", "Gerrie"];
+
+function printArray(namen) {
+    var vAr = "";
+    for (let i = 0; i < namen.length; i++) {
+        vAr += namen[i] + "<br>";
+        
+    }
+    return vAr;
+}
+function printArray2(namen) {
+    var varr = "";
+    var i = 0;
+    while (i < namen.length) {
+        varr += namen[i] + "<br>"
+        i++;
+    }
+    return varr;
+}
+function printArray3(name) {
+    var resultaat = namen.join(" # ");
+    return resultaat;
+}
+var printArray3 = printArray3(namen);
+function printArray4(namen) {
+    var resultaatt = namen.sort();
+    var resultaattt = resultaatt.join(", ");
+    return resultaattt;
+    
+}
+var printArray4 = printArray4(namen);
+const namenn = ["Zoe", "Bram", "Clarissa", "Isa", "Gerrie"];
+namenn.push("Jasper");
+
+document.write(printArray(namen) + "<br>");
+document.write("-------------------------------------------------------<br>");
+document.write(printArray2(namen) + "<br>");
+document.write("-------------------------------------------------------<br>");
+document.write(namen + "<br>");
+document.write("-------------------------------------------------------<br>");
+document.write(namen.length + "<br>");
+document.write("-------------------------------------------------------<br>");
+document.write(namenn + "<br>");
+document.write("-------------------------------------------------------<br>");
+document.write(printArray3 + "<br>");
+document.write("-------------------------------------------------------<br>");
+document.write(printArray4 + "<br>");
+</script>   
+
+</body>
+</html>

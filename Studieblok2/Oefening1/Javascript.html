@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+</head>
+<body>
+
+<script>
+var lengte = 20;
+var breedte = 30;
+var hoogte = 5;
+var plaats = "Assen";   
+var soort = "rijtjeshuis";
+
+function rekenen(lengte, breedte, hoogte) {
+
+    var inhoud = lengte * breedte  * hoogte;
+    var oppervlakte = lengte * breedte
+
+    return {
+        inhoud: inhoud,
+        oppervlakte: oppervlakte
+    };
+}
+var result = rekenen(lengte, breedte, hoogte);
+
+document.write("<h1>Woning info:</h1>");
+document.write("De oppervlakte van het huis is " + result.oppervlakte + " vierkante meter.<br>");
+document.write("De inhoud van de woning is " + result.inhoud + " kubieke meter.<br>");
+document.write("De locatie van de woning is in " + plaats + "<br>");
+document.write("De soort woning is een " + soort + "<br>"); 
+</script>
+
+</body>
+</html>

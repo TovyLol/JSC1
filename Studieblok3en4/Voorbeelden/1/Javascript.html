@@ -1,0 +1,22 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<script> 
+function kleurtekst(kleur){ 
+document.getElementById("verandertekst").setAttribute("style","color:"+kleur+";"); 
+} 
+</script> 
+</head> 
+<body> 
+<div id="verandertekst"> 
+Deze tekst veranderd. 
+</div> 
+<div id="blok1" style="width:100px; height:100px;background-color:red;" 
+onclick="kleurtekst('red');"> 
+</div> 
+<br> 
+<div id="blok2" style="width:100px; height:100px;background-color:green;" 
+onclick="kleurtekst('green');"> 
+</div> 
+</body> 
+</html> 

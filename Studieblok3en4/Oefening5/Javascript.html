@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+    <style>
+        #mouseCoordinates {
+            position: absolute;
+            padding: 10px;
+            background-color: lightblue;
+            border: 1px solid gray;
+        }
+        body {
+            background-color: lightblue ;
+        }
+    </style>
+</head>
+<body>
+    <div id="muiscoords">Muis Coordinaten: </div>
+
+<script>
+var muiscoords = document.getElementById('muiscoords');
+document.addEventListener('mousemove', function(event) {
+
+    var mousex = event.clientX;
+    var mousey = event.clientY;
+    
+    
+    muiscoords.textContent = 'Muis coordinaten: (X: ' + mousex + ', Y: ' + mousey + ')';
+});
+
+</script>
+
+</body>
+</html>

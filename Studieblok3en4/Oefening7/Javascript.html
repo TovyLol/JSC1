@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+    <style>
+        .tekst {
+            font-size: x-large;
+            text-align: center;
+            font-weight: bold;
+        }
+        body {
+            background-color: beige;
+        }
+        .battoon {
+            border: none;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            margin-left: 680px;
+        }
+    </style>
+</head>
+<body>
+<p id="tekst" class="tekst">Jasper</p>
+<button class="battoon" onclick="revealInfo()">reveal battoon</button>
+<div id="details" style="display: none;">
+    <p class="tekst">Geboortedatum: 10/4/24'</p>
+    <p class="tekst">Woonplaats: Assen </p>
+</div>
+
+
+<script>
+function revealInfo() {
+    var details = document.getElementById('details');
+    var battoon = document.getElementsByClassName('battoon')[0];
+    if (details.style.display === 'block') {
+        details.style.display = "none";
+        battoon.textContent = "reveal battoon";
+    } else {
+        details.style.display = "block";
+        battoon.textContent = "unreveal battoon";
+    }
+}
+</script>
+
+</body>
+</html>

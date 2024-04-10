@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+<button onclick="laatdiePromptZien()">battoon</button>
+
+<script>
+
+function laatdiePromptZien() {
+    var tijd = prompt("Geef een aantal seconden aan!")
+    if (tijd == null || tijd == "") {
+        document.write("zo werkt t niet nu moet je de page reloaden >:)")
+        document.write("<h1>POV: jij nu je dit ziet</h1>")
+        document.write("<img src='nodigvoorjs.jpg'>")
+    } else {
+        setTimeout(function() {
+            alert("Tijd afgelopen!");
+        }, 1000 * tijd);
+    }
+    
+}
+
+
+
+</script>
+
+</body>
+</html>

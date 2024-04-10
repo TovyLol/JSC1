@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+</head>
+<body>
+<div id="namenDiv" onclick="voegNamenToe()">Klik hier</div>
+<script>
+const namen = [];
+
+function voegNamenToe() {
+    var naam = prompt("Wat is je naam?");
+    
+    if (naam !== null) {
+        namen.push(naam);
+        document.getElementById('namenDiv').textContent = namen.join(', ');
+    }
+}
+</script>
+</body>
+</html>

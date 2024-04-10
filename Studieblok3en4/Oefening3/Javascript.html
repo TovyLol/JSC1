@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+</head>
+<body>
+    <button id="helloWorldButton" onclick="toggleLanguage()">Hello World</button>
+<script>
+var helloWorldButton = document.getElementById("helloWorldButton");
+
+function toggleLanguage() {
+    if (helloWorldButton.textContent === "Hello World") {
+        helloWorldButton.textContent = "Hallo Wereld";
+    } else {
+        helloWorldButton.textContent = "Hello World";
+    }
+}
+
+helloWorldButton.addEventListener('mouseenter', function() {
+    helloWorldButton.style.fontStyle = 'italic';
+});
+
+helloWorldButton.addEventListener('mouseout', function() {
+    helloWorldButton.style.fontStyle = 'normal';
+});
+</script>
+
+</body>
+</html>

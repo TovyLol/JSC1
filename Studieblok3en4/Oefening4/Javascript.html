@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+
+<style>
+    .clickable-div {
+        background-color: lightblue;
+        padding: 10px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    .bold {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<div id="div1" class="clickdiv" onclick="laatdieStyleZien('div1')">div1</div>
+<div id="div2" class="clickdiv" onclick="laatdieStyleZien('div2')">div2</div>
+<div id="div3" class="clickdiv" onclick="laatdieStyleZien('div3')">div3</div>
+<div id="div4" class="clickdiv" onclick="laatdieStyleZien('div4')">div4</div>
+<div id="div5" class="clickdiv" onclick="laatdieStyleZien('div5')">div5</div>
+
+<script>
+function laatdieStyleZien(id) {
+    var div = document.getElementById(id);
+    if (div.classList.contains('bold')) {
+        div.classList.remove('bold');
+    } else if (event.shiftKey){
+        div.classList.remove('bold');
+
+    } else {
+    div.classList.toggle('bold');
+    }
+
+
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="button">Play</button>
+    <audio id="audio" src="ikhebtlastig.mp3"></audio>
+    <button id= "checkwin" onclick="winCheck()">Win condition</button>
+    
+    <div class="puzzle-container">
+        <div class="puzzle-grid" id="puzzel1"></div>
+        <div class="drop-here">Drop Images Here</div>
+        <div class="puzzle-grid" id="puzzel2"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const gridSize = 3;
+            const puzzleGrids = [document.getElementById('puzzel1'), document.getElementById('puzzel2')];
+            const stukjes = [];
+            const emptySlots = [];
+            const audio = document.getElementById('audio');
+            const button = document.getElementById('button');
+
+            for (let i = 0; i < gridSize * gridSize; i++) {
+                const stukje = document.createElement('div');
+                stukje.classList.add('stukje');
+                if (i < gridSize * gridSize - 1) {
+                    stukje.style.backgroundImage = `url('images/${i + 1}.gif')`;
+                    stukje.dataset.index = i + 1;
+                } else {
+                    stukje.style.backgroundColor = '#f0f0f0';
+                    stukje.dataset.index = gridSize * gridSize;
+                }
+                stukje.setAttribute('draggable', 'true');
+                stukjes.push(stukje);
+            }
+
+            // random
+            stukjes.sort(() => Math.random() - 0.5);
+
+            
+            stukjes.forEach(stukje => puzzleGrids[0].appendChild(stukje));
+
+            // 2
+            for (let i = 0; i < gridSize * gridSize; i++) {
+                const emptySlot = document.createElement('div');
+                emptySlot.classList.add('empty-slot');
+                emptySlot.dataset.index = i + 1;
+                emptySlots.push(emptySlot);
+                puzzleGrids[1].appendChild(emptySlot);
+            }
+
+            
+            stukjes.forEach(stukje => {
+                stukje.addEventListener('dragstart', dragStart);
+            });
+
+            emptySlots.forEach(slot => {
+                slot.addEventListener('dragover', dragOver);
+                slot.addEventListener('drop', drop);
+            });
+
+            function dragStart(event) {
+                event.dataTransfer.setData('text/plain', event.target.dataset.index);
+            }
+
+            function dragOver(event) {
+                event.preventDefault();
+            }
+
+            function drop(event) {
+                event.preventDefault();
+                const draggedIndex = event.dataTransfer.getData('text/plain');
+                const draggedElement = document.querySelector(`[data-index="${draggedIndex}"]`);
+                const targetElement = event.target;
+
+                if (targetElement.classList.contains('empty-slot')) {
+                    const tempBackgroundImage = targetElement.style.backgroundImage;
+                    targetElement.style.backgroundImage = draggedElement.style.backgroundImage;
+                    draggedElement.style.backgroundImage = tempBackgroundImage;
+
+                    targetElement.classList.toggle('empty-slot');
+                    targetElement.classList.toggle('stukje');
+                    draggedElement.classList.toggle('empty-slot');
+                    draggedElement.classList.toggle('stukje');
+
+                    targetElement.setAttribute('draggable', 'true');
+                    draggedElement.setAttribute('draggable', 'false');
+
+                    winCheck();
+                }
+            }
+
+            function winCheck() {
+                const currentOrder = [...puzzleGrids[1].querySelectorAll('.stukje')].map(stukje => stukje.dataset.index);
+                const correctOrder = Array.from({ length: gridSize * gridSize }, (_, i) => (i + 1).toString());
+
+                if (JSON.stringify(currentOrder) === JSON.stringify(correctOrder)) {
+                    alert('Je hebt gewonnen!');
+                }
+            }
+            
+
+            
+            button.addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play();
+                    button.textContent = 'Pause';
+                } else {
+                    audio.pause();
+                    button.textContent = 'Play';
+                }
+            });
+            
+        });
+    </script>
+</body>
+</html>
